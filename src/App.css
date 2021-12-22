@@ -1,0 +1,12 @@
+main {
+  flex: 1;
+}
+
+.App {
+  display: flex;
+  box-sizing: border-box;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
