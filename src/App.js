@@ -5,15 +5,13 @@ import Home from './pages/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer'
 
-const {REACT_APP_BASE_URL, RREACT_APP_API_KEY} = process.env;
+const {REACT_APP_BASE_URL, REACT_APP_API_KEY} = process.env;
 
 function App() {
   const [data, setData] = useState(null);
 
   const getData = async () => {
-    const response = await fetch(`${REACT_APP_BASE_URL}/sets/?key=${RREACT_APP_API_KEY}`, {
-      method: 'GET',
-    });
+    const response = await fetch(`${REACT_APP_BASE_URL}/sets/?key=${REACT_APP_API_KEY}`);
     const data = await response.json();
     console.log(data);
     setData(data);
