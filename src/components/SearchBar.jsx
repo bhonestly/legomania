@@ -1,5 +1,3 @@
-import { useState } from "react"
-
 const SearchBar = ({setSearchType, setSearchInput}) => {
     // sets the state of search input to the input value
     const handleInput = (event) => {
