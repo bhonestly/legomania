@@ -1,29 +1,33 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import SearchBar from "../components/SearchBar";
 
-const Home = ({data}) => {
-    const [dataList, setDataList] = useState([]);
+const Home = () => {
+    // const [dataList, setDataList] = useState([]);
 
-    const handleData = () => {
-        console.log(Array.isArray(data));
-        let createList = data.results.map((el, idx) => {
-            return (<li id={idx}>{el.name}</li>);
-        })
-        console.log('this is createList', createList);
-        setDataList(createList);
-    }
+    // const handleData = () => {
+    //     console.log(Array.isArray(data));
+    //     let createList = data.results.map((el, idx) => {
+    //         return (<li id={idx}>{el.name}</li>);
+    //     })
+    //     console.log('this is createList', createList);
+    //     setDataList(createList);
+    // }
 
-    useEffect(() => {
-        console.log('this is useEffect');
-        console.log(data);
-        if (data) {
-            handleData();
-        }
-    }, [data]);
+    // useEffect(() => {
+    //     console.log(data);
+    //     if (data) {
+    //         handleData();
+    //     }
+    // }, [data]);
+
+
+    const [searchType, setSearchType] = useState('');
+    const [searchInput, setSearchInput] = useState('');
 
     return (
         <main>
             <h1>Home Page</h1>
-            <ul>{dataList}</ul>
+            <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
         </main>
     );
 };
