@@ -1,10 +1,12 @@
 import { useState } from "react"
 
 const SearchBar = ({setSearchType, setSearchInput}) => {
+    // sets the state of search input to the input value
     const handleInput = (event) => {
         setSearchInput(event.target.value)
     };
 
+    //sets the state of the search type based on the picked option from the dropdown menu
     const handleSelect = (event) => {
         setSearchType(event.target.value)
     };
