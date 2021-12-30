@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import SearchBar from "../components/SearchBar";
+import LegoList from "../components/LegoList";
 
 const {REACT_APP_BASE_URL, REACT_APP_API_KEY} = process.env;
 
@@ -48,9 +49,17 @@ const Home = () => {
         <main>
             <h1>Home Page</h1>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
-            {list}
+            <LegoList list={list}/>
         </main>
     );
 };
 
 export default Home;
+
+// ,{
+//              mode: 'no-cors',
+//             headers: {
+//                 "Access-Control-Allow-Origin" : "*", 
+//                 "Access-Control-Allow-Credentials" : true,
+//                 'Content-Type': 'application/json'
+//             },
