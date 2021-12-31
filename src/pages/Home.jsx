@@ -47,7 +47,6 @@ const Home = () => {
 
     return (
         <main>
-            <h1>Home Page</h1>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
             <LegoList list={list}/>
         </main>

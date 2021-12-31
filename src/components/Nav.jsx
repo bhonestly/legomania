@@ -4,8 +4,7 @@ const Nav = () => {
     return(
         <header>
             <nav className='nav'>
-                <Link to = '/'>Home</Link>
-                <Link to ='/'>Another Page</Link>
+                <Link className='nav-link' to = '/'>LEGOmania</Link>
             </nav>
         </header>
     );

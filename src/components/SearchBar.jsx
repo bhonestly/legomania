@@ -1,3 +1,5 @@
+import './SearchStyles.scss';
+
 const SearchBar = ({setSearchType, setSearchInput}) => {
     // sets the state of search input to the input value
     const handleInput = (event) => {
@@ -10,9 +12,8 @@ const SearchBar = ({setSearchType, setSearchInput}) => {
     };
 
     return(
-        <div>
-            <h2>Search</h2>
-            <form>
+        <div className='search-container'>
+            <form className='search-form'>
                 <input type="text" onChange={handleInput} name="searchInput"/>
                 <select onChange={handleSelect} name="searchType">
                     <option value="themes">Themes</option>
