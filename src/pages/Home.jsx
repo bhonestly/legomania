@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import {useNavigate} from 'react-router-dom';
+
 import SearchBar from "../components/SearchBar";
 import LegoList from "../components/LegoList";
 
 const {REACT_APP_BASE_URL, REACT_APP_API_KEY} = process.env;
-
 const Home = () => { 
+    console.log('this is the home component')
     // SearchType -> Chosen type from the dropdown menu. Currently sets 'themes' as default, however we can change this if needed.
     const [searchType, setSearchType] = useState('themes');
     // SeatchInput -> user's input in the search bar itself
@@ -18,14 +20,12 @@ const Home = () => {
     const getData = async () => {
         const response = await fetch(`${REACT_APP_BASE_URL}/${searchType}/?key=${REACT_APP_API_KEY}`);
         const data = await response.json();
-        filterData(data);
         setData(data.results);
     }
 
     // Gets the data and filters is based every time the chosen search type in the dropdown menu changes
     useEffect(() => {
         getData();
-        filterData();
     }, [searchType]);
 
 
@@ -34,19 +34,21 @@ const Home = () => {
         filterData();
     }, [searchInput]);
 
+    useEffect(() => {
+        filterData();
+    }, [data])
+
 
     // Filters the data based on the current user input and creates an array of <li> items. This is temporary for testing purposes, later we will generate the result box component for every item in the filtered array. 
     const filterData = () => {
-        console.log('filter', data)
         let filteredData = data.filter(el => el.name.includes(searchInput));
-        // let list = filteredData.map((el, idx) => {
-        //     return (<li id={idx}>{el.name}</li>);
-        // });
-
+        console.log('filtered data: ', filteredData)
+        
         //Updates the list state
-        setList(filteredData);
+        setList(filteredData)
     }
 
+    console.log('before return: ', list)
     return (
         <main>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
