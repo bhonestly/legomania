@@ -37,12 +37,12 @@ const Home = () => {
     // Filters the data based on the current user input and creates an array of <li> items. This is temporary for testing purposes, later we will generate the result box component for every item in the filtered array. 
     const filterData = () => {
         let filteredData = data.filter(el => el.name.includes(searchInput));
-        let list = filteredData.map((el, idx) => {
-            return (<li id={idx}>{el.name}</li>);
-        });
+        // let list = filteredData.map((el, idx) => {
+        //     return (<li id={idx}>{el.name}</li>);
+        // });
 
         //Updates the list state
-        setList(list);
+        setList(filteredData);
     }
 
     return (
@@ -54,11 +54,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// ,{
-//              mode: 'no-cors',
-//             headers: {
-//                 "Access-Control-Allow-Origin" : "*", 
-//                 "Access-Control-Allow-Credentials" : true,
-//                 'Content-Type': 'application/json'
-//             },

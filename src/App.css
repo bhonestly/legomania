@@ -5,7 +5,6 @@ main {
 .App {
   display: flex;
   box-sizing: border-box;
-  margin-top: 100px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
