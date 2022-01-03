@@ -3,8 +3,10 @@
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
+  margin-top: 0px;
   min-height: 69vh;
-  margin-top: 10px;
+  background-color: #ededed;
+  // background: linear-gradient(180deg, rgba(216, 222, 226, 0) 67.91%, #000000 126.46%);
 }
 
 .item-card {

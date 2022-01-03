@@ -67,7 +67,7 @@ const Home = () => {
     return (
         <main>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
-            <h1 style={headingStyles}>Results: {searchResults[searchType]}</h1>
+            <h1 className="results-header" style={headingStyles}>Results: {searchResults[searchType]}</h1>
             <LegoList list={list}/>
         </main>
     );
