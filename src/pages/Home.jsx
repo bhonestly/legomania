@@ -18,6 +18,7 @@ const Home = () => {
     const getData = async () => {
         const response = await fetch(`${REACT_APP_BASE_URL}/${searchType}/?key=${REACT_APP_API_KEY}`);
         const data = await response.json();
+        filterData(data);
         setData(data.results);
     }
 
@@ -36,6 +37,7 @@ const Home = () => {
 
     // Filters the data based on the current user input and creates an array of <li> items. This is temporary for testing purposes, later we will generate the result box component for every item in the filtered array. 
     const filterData = () => {
+        console.log('filter', data)
         let filteredData = data.filter(el => el.name.includes(searchInput));
         // let list = filteredData.map((el, idx) => {
         //     return (<li id={idx}>{el.name}</li>);
