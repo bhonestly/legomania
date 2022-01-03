@@ -18,7 +18,7 @@ const SearchBar = ({ setSearchType, setSearchInput }) => {
                 <h5>Discover new builds</h5>
                 </div>
             <form className='search-form'>
-                <input className='search-input' type="text" onChange={handleInput} name="searchInput" />
+                <input className='search-input' type="text" placeholder="Search for Kits..." onChange={handleInput} name="searchInput" />
                 <select className="select-container" onChange={handleSelect} name="searchType">
                     <option value="themes">Themes</option>
                     <option value="sets">Sets</option>
