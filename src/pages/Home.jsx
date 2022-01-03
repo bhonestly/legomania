@@ -5,6 +5,12 @@ import LegoList from "../components/LegoList";
 
 const {REACT_APP_BASE_URL, REACT_APP_API_KEY} = process.env;
 const Home = () => { 
+    const searchResults = {
+        'minifigs': 'Mini Figures',
+        'parts': 'Parts',
+        'sets': 'Sets',
+        'themes': 'Themes'
+    }
     // SearchType -> Chosen type from the dropdown menu. Currently sets 'themes' as default, however we can change this if needed.
     const [searchType, setSearchType] = useState('themes');
     // SeatchInput -> user's input in the search bar itself
@@ -13,7 +19,7 @@ const Home = () => {
     const [data, setData] = useState([])
     // list - current filtered list of items based on the user's search input
     const [list, setList] = useState([])
-    
+
     //API call based on searchType
     const getData = async () => {
         const response = await fetch(`${REACT_APP_BASE_URL}/${searchType}/?key=${REACT_APP_API_KEY}`);
@@ -45,11 +51,10 @@ const Home = () => {
         setList(filteredData)
     }
 
-    console.log('before return: ', list)
     return (
         <main>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
-            <h1>Results: {searchType}</h1>
+            <h1>Results: {searchResults[searchType]}</h1>
             <LegoList list={list}/>
         </main>
     );
