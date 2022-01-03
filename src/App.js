@@ -1,6 +1,5 @@
 import './App.css';
 import {Route, Routes } from 'react-router-dom';
-import LegoList from "./components/LegoList"
 import Home from './pages/Home';
 import Nav from './components/Nav';
 import Footer from './components/Footer'

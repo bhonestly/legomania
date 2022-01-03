@@ -1,12 +1,15 @@
 import React from 'react'
+import './ListStyles.scss'
 
-export default function LegoList({list}) {
+export default function LegoList({ list }) {
   console.log(list)
   return (
-    <ol>
-      {list.length && list.map((item, idx) => (
-        item
-      ))}
-    </ol>
+      <ol className="ordered-list">
+        {list.length && list.map((item) => (
+          <div className="item-card">
+            {item.name}
+          </div>
+        ))}
+      </ol>
   )
 }

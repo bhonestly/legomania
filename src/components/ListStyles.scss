@@ -1,0 +1,22 @@
+.ordered-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  width: 100%;
+  min-height: 69vh;
+  margin-top: 10px;
+}
+
+.item-card {
+  display: flex;
+  background-color: rgb(99, 99, 167);
+  width: 250px;
+  height: 250px;
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  padding: 10px;
+}
