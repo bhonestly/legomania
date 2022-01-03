@@ -1,12 +1,10 @@
 import { useState, useEffect } from "react";
-import {useNavigate} from 'react-router-dom';
 
 import SearchBar from "../components/SearchBar";
 import LegoList from "../components/LegoList";
 
 const {REACT_APP_BASE_URL, REACT_APP_API_KEY} = process.env;
 const Home = () => { 
-    console.log('this is the home component')
     // SearchType -> Chosen type from the dropdown menu. Currently sets 'themes' as default, however we can change this if needed.
     const [searchType, setSearchType] = useState('themes');
     // SeatchInput -> user's input in the search bar itself
@@ -15,7 +13,7 @@ const Home = () => {
     const [data, setData] = useState([])
     // list - current filtered list of items based on the user's search input
     const [list, setList] = useState([])
-
+    
     //API call based on searchType
     const getData = async () => {
         const response = await fetch(`${REACT_APP_BASE_URL}/${searchType}/?key=${REACT_APP_API_KEY}`);
@@ -42,7 +40,6 @@ const Home = () => {
     // Filters the data based on the current user input and creates an array of <li> items. This is temporary for testing purposes, later we will generate the result box component for every item in the filtered array. 
     const filterData = () => {
         let filteredData = data.filter(el => el.name.includes(searchInput));
-        console.log('filtered data: ', filteredData)
         
         //Updates the list state
         setList(filteredData)
@@ -52,6 +49,7 @@ const Home = () => {
     return (
         <main>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
+            <h1>Results: {searchType}</h1>
             <LegoList list={list}/>
         </main>
     );

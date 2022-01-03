@@ -1,15 +1,14 @@
 import React from 'react'
 import './ListStyles.scss'
+import { Link } from 'react-router-dom'
 
 export default function LegoList({ list }) {
-  // console.log(list)
   return (
       <ol className="ordered-list">
         {list.length && list.map((item) => (
           <div className="item-card">
-            <img src={item.set_img_url ? item.set_img_url : ''} />
-            <img src={item.part_img_url ? item.part_img_url : ''} />
-            {item.name}
+            <img src={item.set_img_url || item.part_img_url ? item.set_img_url || item.part_img_url : '/images/Lego-image not-available.jpg'} />
+            {item.set_url || item.part_url ? <a href={item.set_url ? item.set_url : item.part_url} target="_blank" ><p>{item.name}</p></a> : <p>{item.name}</p>}
           </div>
         ))}
       </ol>
