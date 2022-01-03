@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import SearchBar from "../components/SearchBar";
 import LegoList from "../components/LegoList";
@@ -11,6 +11,9 @@ const Home = () => {
         'sets': 'Sets',
         'themes': 'Themes'
     }
+
+    const getDataRef = useRef(null)
+    const filterDataRef = useRef(null)
     // SearchType -> Chosen type from the dropdown menu. Currently sets 'themes' as default, however we can change this if needed.
     const [searchType, setSearchType] = useState('themes');
     // SeatchInput -> user's input in the search bar itself
@@ -27,19 +30,25 @@ const Home = () => {
         setData(data.results);
     }
 
+    useEffect(() => {
+        getDataRef.current = getData;
+        filterDataRef.current = filterData;
+    })
+
     // Gets the data and filters is based every time the chosen search type in the dropdown menu changes
     useEffect(() => {
-        getData();
+        getDataRef.current();
+        filterDataRef.current()
     }, [searchType]);
 
 
     // Call the filter data function evety time the user input changes
     useEffect(() => {
-        filterData();
+        filterDataRef.current()
     }, [searchInput]);
 
     useEffect(() => {
-        filterData();
+        filterDataRef.current()
     }, [data])
 
 
@@ -51,10 +60,14 @@ const Home = () => {
         setList(filteredData)
     }
 
+    const headingStyles = {
+        paddingLeft: '40px'
+    }
+
     return (
         <main>
             <SearchBar setSearchType={setSearchType} setSearchInput={setSearchInput} />
-            <h1>Results: {searchResults[searchType]}</h1>
+            <h1 style={headingStyles}>Results: {searchResults[searchType]}</h1>
             <LegoList list={list}/>
         </main>
     );
