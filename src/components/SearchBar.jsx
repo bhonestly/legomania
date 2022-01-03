@@ -15,7 +15,7 @@ const SearchBar = ({ setSearchType, setSearchInput }) => {
         <div className='layout'>
             <div className='layout-text'>
                 <h5>Share your creations</h5>
-                <h5>Discober new builds</h5>
+                <h5>Discover new builds</h5>
                 </div>
             <form className='search-form'>
                 <input className='search-input' type="text" onChange={handleInput} name="searchInput" />
